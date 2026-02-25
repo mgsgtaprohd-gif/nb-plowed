@@ -1,1 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>New Bedford Plowed?</title>
+  <meta name="description" content="Community-reported snow plow status for New Bedford, MA (unofficial)." />
+  <link rel="stylesheet" href="styles.css" />
 
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">🚜</div>
+      <div>
+        <h1>New Bedford Plowed?</h1>
+        <p class="sub">Unofficial, community-reported. Use common sense.</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label class="sr-only" for="search">Search streets</label>
+      <input id="search" type="search" placeholder="Search a street…" autocomplete="off" />
+
+      <div class="seg" role="tablist" aria-label="View selector">
+        <button id="tabMap" class="seg-btn active" role="tab" aria-selected="true">Map</button>
+        <button id="tabList" class="seg-btn" role="tab" aria-selected="false">List</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section id="mapWrap" class="panel" aria-label="Map view">
+      <div id="map" tabindex="0" aria-label="Street map"></div>
+
+      <div class="legend" aria-label="Legend">
+        <span class="chip gray">Unknown</span>
+        <span class="chip green">Plowed</span>
+        <span class="chip red">Not plowed</span>
+        <span class="chip amber">Mixed</span>
+      </div>
+    </section>
+
+    <section id="listWrap" class="panel hidden" aria-label="List view">
+      <div id="list" class="list" role="list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      This is NOT an official city service. Data can be wrong. Don’t rely on it for safety-critical decisions.
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
